@@ -21,4 +21,4 @@ Om
 
 Oophp är en del av programmet Webbprogrammerare på Blekinge tekniska högskola.
 
-[FIGURE src=image/flyingprinsen.jpg.?w=740h&filter=grayscale caption="Flying horse"]
+[FIGURE src=image/flyingprinsen.jpg?w=740h&filter=grayscale caption="Flying horse"]
