@@ -1,0 +1,86 @@
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+
+
+ //Defaultvärden. Skrivs över av kmom05.less.
+@bgColorHtml: #a88231;
+@bgColorBody: #f5f2ed;
+@colorBody: #000;
+//@fontFamilyBody: serif;
+
+html {
+    overflow-y: scroll;
+    background-color: @bgColorHtml;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: @colorBody;
+    background-color: @bgColorBody;
+    #desinax-hgrid.font(@fontSizeBody);
+    //overflow-y: scroll;
+    //font: 100.01%/1 @fontFamilyBody;
+}
+
+.wrap-all {
+    background-image: url("../img/books-2463779_1920filter.jpg");
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
+    padding: 0;
+    //background-color: #aac997;
+    //overflow-y: scroll;
+}
+
+// Activate grid and affect all typographic elements
+#desinax-hgrid.activateDefaultTypography();
+
+img, embed, object, video {
+    max-width: 100%;
+}
+
+
+
+//Style submenu links
+
+.breadcrumb-list li {
+    list-style-type: none;
+}
+.region-breadcrumb li a {
+    text-decoration: none;
+}
+
+
+//Sets color on drop-down submenu.
+.rm-desktop ul {
+    background-color: @bgColorHtml;
+}
+
+.inner-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.wrap-all {
+    //max-width: 1100px;
+    //margin: 0 auto;
+    background-color: @bgColorBody;
+    //font-family: sans-serif;
+}
+
+//Styling sidebar left on redovisning
+.toc {
+    list-style-type: none;
+    //text-decoration: none;
+}
+
+.toc a {
+    text-decoration: none;
+}
+
+.next-previous a {
+    text-decoration: none;
+}

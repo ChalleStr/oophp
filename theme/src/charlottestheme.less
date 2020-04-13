@@ -1,0 +1,133 @@
+/*!
+ * Stylesheet for oophp redovisa.
+ *
+*/
+
+
+
+
+/**
+* Import clearfix.
+*/
+
+ @import "mixin/clearfix.less";
+
+.clearfix() {
+     #design-mixin.clearfix()
+}
+
+
+/**
+* Normalize and reset the style.
+*/
+ @import "normalize.css/normalize.less";
+
+/**
+ * Font Awesome.
+*/
+ @import "@fortawesome/fontawesome-free/less/fontawesome.less";
+ @import "@fortawesome/fontawesome-free/less/solid.less";
+ @import "@fortawesome/fontawesome-free/less/brands.less";
+
+
+
+
+/**
+*Internal self contained modules, save in directory module/.
+*/
+//@import "module/kmom01.less";
+//@import "module/stylechooser.less";  // Just an example module
+
+
+
+/**
+ * A responsive menu.
+ */
+@import "@desinax/responsive-menu/less/responsive-menu.less";
+//@import "@desinax/responsive-menu/less/media-queries.less";
+
+/**
+* Typgraphic grid
+*/
+@import "@desinax/typographic-grid/less/typography-font-families.less";
+@import "@desinax/typographic-grid/less/typography-defaults.less";
+
+
+
+// Show the grid
+.hgrid .inner-wrap {
+    @gridImage: "../img/magic-number-@{magicNumber}.png";
+    #desinax-hgrid.showGrid(@gridImage);
+}
+
+
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+//@import "base/base.less";
+@import "base/base_charlottestheme.less";
+
+
+/**
+ * Import the vertical grid.
+ */
+@import "@desinax/vertical-grid/less/grid.less";
+@import "layout/vgrid.less";
+
+// Default grid, change to fit your requirements.
+// @columnWidth:   30;
+// @gutterWidth:   10;
+// @columns:       24;
+// @gridType:      "float"; // "flex"
+
+
+
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+// @import "layout/layout.less";
+// @import "layout/layout_kmom02.less";
+@import "layout/responsive.less";
+@import "layout/regions.less";     // To add style for ?regions
+
+// layout style for blogg
+@import "@desinax/figure/less/asciinema.less";
+@import "@desinax/figure/less/codepen.less";
+@import "@desinax/figure/less/figure.less";
+
+// Enable style from the module and optinally add customized layout
+figure.figure {
+    @maxContentWidth: 900px;
+    #desinax-figure.figure(@maxContentWidth);
+}
+
+figure.asciinema {
+    &:extend(figure.figure);
+    #desinax-figure.asciinema();
+}
+
+figure.codepen,
+figure.figure-codepen {
+    &:extend(figure.figure);
+    #desinax-figure.codepen();
+}
+
+/**
+ * My own settings, not currently in their own module.
+ */
+//Här kan man ändra färgen senare, skriver över default i basefilen.
+@bgColorHtml: #a88231;
+@bgColorBody: #f5f2ed;
+
+ //Adapt the typgraphic grid to my style
+@fontFamilyBody:     @fontFamilyCalibri; //"sans-serif";
+@fontFamilyHeadings: @fontFamilyGaramond; //"serif";
+@fontFamilyCode:     "monospace";
+
+
+ // Magic number and base fontsize
+@magicNumber:  22px;  // 24px
+@fontSizeBody: 18px;
+
+@import "modules/charlottestheme.less";
