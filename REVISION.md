@@ -1,7 +1,11 @@
 Revision history
 ====================
 
-v.2.0.0 (2020-04-30)
+v2.0.1 (2020-04-30)
+
+* Finished and published kmom02 with report.
+
+v2.0.0 (2020-04-30)
 
 * Transfered Guess game to Anax.
 

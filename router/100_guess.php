@@ -54,53 +54,50 @@ $app->router->get("guess/play", function () use ($app) {
  * Play the game - make a guess.
  */
 
- $app->router->post("guess/play", function () use ($app) {
-     $tries = $_SESSION["tries"] ?? null;
-     $number = $_SESSION["number"] ?? null;
+$app->router->post("guess/play", function () use ($app) {
+    $tries = $_SESSION["tries"] ?? null;
+    $number = $_SESSION["number"] ?? null;
 
 
-     $doInit = $_POST["doInit"] ?? null;
-     $doGuess = $_POST["doGuess"] ?? null;
-     $doCheat = $_POST["doCheat"] ?? null;
-     $guess = $_POST["guess"] ?? null;
+    $doInit = $_POST["doInit"] ?? null;
+    $doGuess = $_POST["doGuess"] ?? null;
+    $doCheat = $_POST["doCheat"] ?? null;
+    $guess = $_POST["guess"] ?? null;
 
 
-     if (isset($doGuess)) {
-         $gameObject = new Chast\Guess\Guess($number, $tries);
-         $res = $gameObject->makeGuess((int) $guess);
-         $_SESSION["tries"] = $gameObject->tries();
-         $_SESSION["res"] = $res;
-         $_SESSION["guess"] = $guess;
-         $tries = $gameObject->tries();
-         if ($tries < 1) {
-             $app->response->redirect("guess/gameover");
-         }
-     }
+    if (isset($doGuess)) {
+        $gameObject = new Chast\Guess\Guess($number, $tries);
+        $res = $gameObject->makeGuess((int) $guess);
+        $_SESSION["tries"] = $gameObject->tries();
+        $_SESSION["res"] = $res;
+        $_SESSION["guess"] = $guess;
+        $tries = $gameObject->tries();
+        if ($tries < 1) {
+            $app->response->redirect("guess/gameover");
+        }
+    }
 
-     if ($doInit) {
-         $_SESSION["tries"] = null;
-         $_SESSION["number"] = null;
-         $gameObject = new Chast\Guess\Guess();
-         $_SESSION["doCheat"] = null;
-         $_SESSION["tries"] = $gameObject->tries();
-         $_SESSION["number"] = $gameObject->number();
-     }
+    if ($doInit) {
+        $_SESSION["tries"] = null;
+        $_SESSION["number"] = null;
+        $gameObject = new Chast\Guess\Guess();
+        $_SESSION["doCheat"] = null;
+        $_SESSION["tries"] = $gameObject->tries();
+        $_SESSION["number"] = $gameObject->number();
+    }
 
-     if ($_POST["doCheat"]) {
-         $_SESSION["doCheat"] = $doCheat;
-     }
-
-     return $app->response->redirect("guess/play");
-
-
- });
-
- $app->router->get("guess/gameover", function () use ($app) {
-     $gameOver = "Game Over!";
-
-     $app->page->add("guess/gameover");
-
-     return $app->page->render([
-         "gameOver" => $gameOver,
-    ]);
+    if ($_POST["doCheat"]) {
+        $_SESSION["doCheat"] = $doCheat;
+    }
+    return $app->response->redirect("guess/play");
 });
+
+    $app->router->get("guess/gameover", function () use ($app) {
+        $gameOver = "Game Over!";
+
+        $app->page->add("guess/gameover");
+
+        return $app->page->render([
+            "gameOver" => $gameOver,
+        ]);
+    });
