@@ -1,6 +1,10 @@
 Revision history
 ====================
 
+v2.0.2 (2020-05-05)
+
+* Fixed issue with GuessException-class.
+
 v2.0.1 (2020-04-30)
 
 * Finished and published kmom02 with report.

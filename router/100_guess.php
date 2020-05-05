@@ -42,7 +42,7 @@ $app->router->get("guess/play", function () use ($app) {
 
     $app->page->add("guess/play", $data);
     //Debugger
-    $app->page->add("guess/debug");
+    //$app->page->add("guess/debug");
 
     return $app->page->render([
         "title" => $title,
